@@ -6,6 +6,8 @@
 int queue[SIZE];
 int front = -1, rear = -1;
 
+void display();
+
 
 void insert(int data){
 
@@ -31,6 +33,8 @@ void insert(int data){
 	}
     else
         printf("Queue Full\n");
+
+	display();
     
 }
 
@@ -54,6 +58,8 @@ int delete1(){
             front = rear = -1;
         }
 
+		display();
+
         return data;
 
 	}
@@ -61,9 +67,10 @@ int delete1(){
 		printf("Queue is empty\n");
 		return NULL;
 	}
+
 }
 
-void display(){
+void display1(){
 	int i;
     printf("front = %d \n",front);
     printf("rear = %d \n",rear);
@@ -74,6 +81,26 @@ void display(){
 
 		printf("%d - %d\n",queue[i],i);
 
+	}
+
+}
+
+
+void display(){
+	int i;
+
+	for(i=front;(i<SIZE)&&(i<=rear);i++){
+
+		printf("%d - %d\n",queue[i],i);
+
+	}
+
+	if(rear<front){
+		for(i=0;(i<front);i++){
+
+			printf("%d - %d\n",queue[i],i);
+
+		}		
 	}
 
 }
